@@ -14,8 +14,8 @@ parity-scale-codec = { version = "3.0.3", features = ["derive"] }
 scale-info = { version = "2.3.0", features = ["derive"] }
 frame-support = { version = "4.0.0", default-features = false, features = ["std"] }
 frame-system = { version = "4.0.0", default-features = false, features = ["std"] }
-pallet-balances = { version = "4.0.0" }
-sp-std = { version = "4.0.0", default-features = false }
+pallet-balances = { version = "4.0.0" , default-features = false, features = ["std"] } # added default-features = false, features = ["std"]
+sp-std = { version = "4.0.0", default-features = false, features = ["std"] } # added features = ["std"]
 
 [features]
 default = ["std"]
@@ -24,8 +24,9 @@ std = [
     "frame-system/std",
     "scale-info/std",
     "sp-std/std",
+    "pallet-balances/std" # added this line
 ]
 
-[patch.crates-io]
-# Alinha a versão de schnorrkel para evitar conflitos
-schnorrkel = { version = "0.11.4" }
+#[patch.crates-io]
+# REMOVE THIS SECTION.  Direct patching is generally discouraged.
+# schnorrkel = { version = "0.11.4" }
