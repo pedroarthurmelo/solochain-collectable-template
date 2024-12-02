@@ -1,32 +1,49 @@
 [package]
 name = "pallet-collectables"
-version = "0.1.0"
 description = "FRAME pallet collectables for defining custom runtime logic."
-edition = "2021"
+version = "0.1.0"
 license = "Unlicense"
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+edition.workspace = true
 publish = false
 
-[lib]
-proc-macro = true
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
 
 [dependencies]
-parity-scale-codec = { version = "3.0.3", features = ["derive"] }
-scale-info = { version = "2.3.0", features = ["derive"] }
-frame-support = { version = "4.0.0", default-features = false, features = ["std"] }
-frame-system = { version = "4.0.0", default-features = false, features = ["std"] }
-pallet-balances = { version = "4.0.0" , default-features = false, features = ["std"] } # added default-features = false, features = ["std"]
-sp-std = { version = "4.0.0", default-features = false, features = ["std"] } # added features = ["std"]
+codec = { features = [
+	"derive",
+], workspace = true }
+scale-info = { features = [
+	"derive",
+], workspace = true }
+frame-benchmarking = { optional = true, workspace = true }
+frame-support.workspace = true
+frame-system.workspace = true
+
+[dev-dependencies]
+sp-core = { default-features = true, workspace = true }
+sp-io = { default-features = true, workspace = true }
+sp-runtime = { default-features = true, workspace = true }
+pallet-balances = { version = "39.0.0" }
 
 [features]
 default = ["std"]
 std = [
-    "frame-support/std",
-    "frame-system/std",
-    "scale-info/std",
-    "sp-std/std",
-    "pallet-balances/std" # added this line
+	"codec/std",
+	"frame-benchmarking?/std",
+	"frame-support/std",
+	"frame-system/std",
+	"scale-info/std",
 ]
-
-#[patch.crates-io]
-# REMOVE THIS SECTION.  Direct patching is generally discouraged.
-# schnorrkel = { version = "0.11.4" }
+runtime-benchmarks = [
+	"frame-benchmarking/runtime-benchmarks",
+	"frame-support/runtime-benchmarks",
+	"frame-system/runtime-benchmarks",
+]
+try-runtime = [
+	"frame-support/try-runtime",
+	"frame-system/try-runtime",
+]
