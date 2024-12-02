@@ -1,0 +1,28 @@
+[package]
+name = "pallet-collectables"
+version = "0.1.0"
+description = "FRAME pallet collectables for defining custom runtime logic."
+authors = ["Seu Nome <email@example.com>"]
+edition = "2021"
+license = "Unlicense"
+publish = false
+
+[lib]
+proc-macro = true
+
+[dependencies]
+codec = { version = "2.0.0", features = ["derive"] }
+scale-info = { version = "2.3.0", features = ["derive"] }
+frame-support = { version = "4.0.0", default-features = false, features = ["std"] }
+frame-system = { version = "4.0.0", default-features = false, features = ["std"] }
+pallet-balances = { version = "4.0.0" }
+sp-std = { version = "4.0.0", default-features = false }
+
+[features]
+default = ["std"]
+std = [
+    "frame-support/std",
+    "frame-system/std",
+    "scale-info/std",
+    "sp-std/std",
+]

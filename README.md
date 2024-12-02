@@ -1,0 +1,2 @@
+# solochain-collectable-template
+ 
