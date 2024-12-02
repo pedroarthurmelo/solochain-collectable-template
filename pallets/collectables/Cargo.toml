@@ -2,7 +2,6 @@
 name = "pallet-collectables"
 version = "0.1.0"
 description = "FRAME pallet collectables for defining custom runtime logic."
-authors = ["Seu Nome <email@example.com>"]
 edition = "2021"
 license = "Unlicense"
 publish = false
@@ -11,7 +10,7 @@ publish = false
 proc-macro = true
 
 [dependencies]
-codec = { version = "2.0.0", features = ["derive"] }
+parity-scale-codec = { version = "3.0.3", features = ["derive"] }
 scale-info = { version = "2.3.0", features = ["derive"] }
 frame-support = { version = "4.0.0", default-features = false, features = ["std"] }
 frame-system = { version = "4.0.0", default-features = false, features = ["std"] }
