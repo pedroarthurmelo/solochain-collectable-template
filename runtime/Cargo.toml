@@ -49,6 +49,7 @@ pallet-transaction-payment-rpc-runtime-api.workspace = true
 frame-benchmarking = { optional = true, workspace = true }
 frame-system-benchmarking = { optional = true, workspace = true }
 pallet-template.workspace = true
+pallet-collectables = { path = "../pallets/collectables", default-features = false }
 
 [build-dependencies]
 substrate-wasm-builder = { optional = true, workspace = true, default-features = true }
@@ -93,6 +94,7 @@ std = [
 	"sp-version/std",
 
 	"substrate-wasm-builder",
+	"pallet-collectables/std",
 ]
 
 runtime-benchmarks = [

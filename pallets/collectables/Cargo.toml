@@ -2,6 +2,9 @@
 name = "pallet-kitties"
 version = "0.1.0"
 description = "An NFT Marketplace for Kitties"
+authors = ["Shawn Tabrizi <shawntabrizi@gmail.com>"]
+homepage = "https://www.shawntabrizi.com/substrate-collectables-workshop/"
+repository = "https://github.com/shawntabrizi/substrate-collectables-workshop"
 edition = "2021"
 publish = false
 
